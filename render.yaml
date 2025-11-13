@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: crypto-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: "cd server && npm install"
+    startCommand: "cd server && node index.js"
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: DB_HOST
+        fromDatabase:
+          name: crypto-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: crypto-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: crypto-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: crypto-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: crypto-db
+          property: password
+
+databases:
+  - name: crypto-db
+    plan: free
+    region: oregon

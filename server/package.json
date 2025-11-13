@@ -4,8 +4,9 @@
   "description": "Backend for Crypto Dashboard with Chat Assistant",
   "main": "index.js",
   "type": "module",
-  
-  
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "axios": "^1.13.2",
     "cors": "^2.8.5",
